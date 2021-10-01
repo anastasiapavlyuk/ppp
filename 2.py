@@ -4,7 +4,7 @@ import tkinter
 from math import pi, cos, sin
 
 pygame.init()
-
+#цвета
 screen = pygame.display.set_mode((800, 400))
 polygon(screen, (0, 255, 255), [(0, 0), (800, 0),
                                (800,155), (0,155)], 0)
