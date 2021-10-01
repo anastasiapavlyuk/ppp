@@ -1,7 +1,6 @@
 import pygame
 from pygame.draw import *
-import tkinter
-from math import pi, cos, sin
+import numpy as np
 
 pygame.init()
 
@@ -12,7 +11,15 @@ polygon(screen, (0, 0, 255), [(0, 155), (800, 155),
                                (800,290), (0,290)], 0)
 polygon(screen, (255, 255, 0), [(0, 290), (800, 290),
                                (800,400), (0,400)], 0)
-circle(screen, (255, 255, 0), (730, 70), 50, 0)
+
+def sun(r,n):
+    pfi=0
+    m = []
+    for f in range(n):
+        m.append([730+(r+5*(-1)**f)*np.cos(pfi), 70+(r+5*(-1)**f)*np.sin(pfi)])
+        pfi+=2*np.pi/n
+    polygon(screen, (255, 255, 0), m, 0)
+
 def cloud(a,b):
     circle(screen, (255, 255, 255), (60+a, 60+b), 20, 0)
     circle(screen, (255, 255, 255), (80+a, 60+b), 20, 0)
@@ -67,6 +74,7 @@ def umbrella():
 
 
 
+sun(50,70)
 beach(30)
 ship(-10)
 ship(100)
